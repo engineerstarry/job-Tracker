@@ -1,0 +1,21 @@
+<%- include("header.ejs") %>
+<div class="container">
+<h1>Job Application Trackers</h1>
+<p>
+    Create and open trackers for your job applications, interviews, and job links.
+     Keep everything organized in one place.
+</p>
+</div>
+<div class="trackers container">
+<% trackers.forEach(tracker => { %>
+    <div class="tracker-card">
+        <p> <%= tracker.applicationDate %></p>
+        <h2><%= tracker.jobName %></h2>
+        <p> <%= tracker.companyName %></p>
+        <p><%= tracker.applicationMedium %></p>
+        <p>Status: <%= tracker.applicationStatus %></p>
+        <a href="/trackers/<%= tracker.id %>">Open Tracker</a>
+    </div>
+<%}); %>
+</div>
+<%- include("footer.ejs") %>

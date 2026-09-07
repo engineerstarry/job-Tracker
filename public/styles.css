@@ -1,0 +1,27 @@
+#menu {
+    display: none;
+ 
+}
+
+#menu.show {
+    display: block;
+
+}
+a{
+    display: block;
+    margin-bottom: 20px;
+}
+.whole-body{
+  
+    height: 100vh;
+}
+
+.logo{
+    width: 80px;
+    height: 80px;
+}
+
+.logo-div{
+display: flex;
+}
+

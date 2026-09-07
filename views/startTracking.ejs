@@ -1,0 +1,36 @@
+<%- include("header.ejs") %>
+<div class="container">
+    <h1>
+        Add Job Application Tracker
+    </h1>
+    <p>
+        Keep track of the jobs you applied for. Fill in the details below to create a new 
+        tracker.
+    </p>
+</div>
+<div class="container">
+    <form method="post" action="/jobTrackers">
+     
+            <label for="jobTitle">Job Title:</label>
+            <input type="text" id="jobTitle" name="jobTitle" required>
+    
+ 
+            <label for="companyName">Company Name:</label>
+            <input type="text" id="companyName" name="companyName" required>
+
+            <label for="applicationDate">Application Date:</label>
+            <input type="date" id="applicationDate" name="applicationDate" required>
+
+            <label for="status">Status:</label>
+            <select id="status" name="status">
+                <option value="applied">Applied</option>
+                <option value="interviewing">Interviewing</option>
+                <option value="offer">Offer</option>
+                <option value="rejected">Rejected</option>
+            </select>
+       
+        <button type="submit">Create Tracker</button>
+
+    </form>
+</div>
+<%- include("footer.ejs") %>

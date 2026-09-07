@@ -1,0 +1,215 @@
+<%- include("header.ejs") %>
+    <div class="whole-body">
+        <nav>
+            <div class="hamburger-menu">
+                <button id="menu-btn">☰</button>
+                <div id="menu">
+                    <a href="/">Home</a>
+                    <a href="#works">How it works</a>
+                    <a href="#about">About</a>
+
+                    <a href="/trackers">Trackers</a>
+                    <a href="/newTracker">+ New Tracker</a>
+                    <div class="/sign-in">
+                        <i class="bi bi-person"></i> <a href="/signIn.ejs">Sign in</a>
+                    </div>
+
+                    <p>Light mode</p>
+                    <div class="userName"></div>
+                </div>
+            </div>
+
+            <div class="logo-div">
+                <div>
+                    <img src="images/oppotrack-logo.png" alt="opportrack logo" class="logo">
+                </div>
+                <div>
+                    <h1>OppoTrack</h1>
+                    <p>Simple job application tracker</p>
+                </div>
+
+            </div>
+
+        </nav>
+
+        <section>
+            <div>
+                <p>Organize your job applications easier</p>
+                <h2>Track Every Job Without The Mess</h2>
+                <p>
+                    Jubro helps students, freelancers, and job seekers organize applications,
+                    interviews, and job links in one clean and simple tracker.
+                </p>
+            </div>
+            <a href="/startTracking">Start Tracking</a>
+            <a href="#works">Learn More</a>
+            <div>
+                <div>
+                    <h3>Simple</h3>
+                    <p>Beginner friendly UI</p>
+                </div>
+                <div>
+                    <h3>Fast</h3>
+                    <p>Track jobs instantly</p>
+                </div>
+                <div>
+                    <h3>
+                        Clean
+                    </h3>
+                    <p>No clutter dashboard</p>
+                </div>
+            </div>
+
+
+        </section>
+
+        <section>
+            <div>
+              <a href="/trackers">Open Trackers</a>
+                <% trackers.forEach(tracker => { %>
+                <div class="tracker-card">
+              
+                    <div>
+                    <h2><%= tracker.jobName %></h2>
+                    <p> <%= tracker.companyName %></p>
+                    </div>
+                   <div>
+                    <p>Status: <%= tracker.applicationStatus %></p>
+                    </div>
+                </div>
+             <%   }); %>
+            </div>
+        </section>
+
+        <section id="works">
+            <div>
+                <h4>How OpporTrack works</h4>
+                <h5>In 3 Simple Steps</h5>
+                <p>No complicated setup. Just create trackers, save applications,
+                    and monitor your job progress in one clean dashboard.
+                </p>
+            </div>
+
+            <div class="container">
+                <div class="card">
+                    <div class="folder">
+                        <i class="bi bi-folder"></i>
+                    </div>
+                    <p>
+                        STEP 01
+                    </p>
+                    <h5>Create A Tracker</h5>
+                    <p>Start by creating a tracker for internships, freelance jobs, remote work, or company
+                        applications.</p>
+                </div>
+
+                <div class="card">
+                    <div class="folder">
+                        <i class="bi bi-briefcase-fill"></i>
+                    </div>
+                    <p>
+                        STEP 02
+                    </p>
+                    <h5>Save Job Applications</h5>
+                    <p>
+                        Add company names, positions, dates applied, status updates, and important job links.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="folder">
+                        <i class="bi bi-graph-up"></i>
+                    </div>
+                    <p>
+                        STEP 03
+                    </p>
+                    <h5>Track Your Progress</h5>
+                    <p>
+                        Monitor interviews, rejections, pending applications, and organize your entire job hunting
+                        journey.
+                    </p>
+                </div>
+
+                <div>
+                    <h5>
+                        Keep Your Job Search Organized & Stress Free
+                    </h5>
+                    <p>
+                        Jubro gives students, fresh graduates, and freelancers a simple way to manage applications
+                        without
+                        messy spreadsheets.</p>
+                    <a href="startTracking">Start Tracking Now</a>
+                </div>
+            </div>
+
+        </section>
+        <section class="about">
+            <p>
+                About OppoTrack
+            </p>
+            <h5 id="about">
+                ABOUT OppoTrack
+            </h5>
+            <p>
+                Built For Students,
+                Freelancers & Job Seekers
+            </p>
+            <p>
+                OppoTrack is a simple job application tracker designed to help people organize applications, interviews,
+                and opportunities without complicated dashboards or messy spreadsheets.
+                Whether you're applying for internships, freelance projects, remote work,
+                or full-time jobs, OppoTrack keeps everything organized in one clean and beginner-friendly workspace.
+
+            </p>
+            <div class="d-flex">
+                <div class="check">
+                    <i class="bi bi-check2"></i>
+                </div>
+                <div>
+                    <h5>Simple & Minimal UI</h5>
+                    <p>Easy to use even if you are not familiar with productivity tools.</p>
+                </div>
+            </div>
+
+            <div class="d-flex">
+                <div class="brief">
+                    <i class="bi bi-briefcase-fill"></i>
+                </div>
+                <div>
+                    <h5>Track Job Applications</h5>
+                    <p>Save positions, companies, statuses, and important job links.</p>
+                </div>
+            </div>
+
+            <div class="d-flex">
+                <div>
+                    <i class="bi bi-bar-chart-fill"></i>
+                </div>
+                <div>
+                    <h5>Organize Everything</h5>
+                    <p>Keep your entire job hunting journey in one place.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="ready">
+            <div class="d-flex">
+                <div>
+                    <img src="images/oppotrack-logo.png" alt="opportrack logo" class="logo">
+                </div>
+                <p>OPPORTRACK</p>
+            </div>
+            <h6>
+                Ready to organize your job journey?
+            </h6>
+            <p>Start tracking your applications and stay organized with Jubro.</p>
+            <a href="/startTracking"></a>
+        </section>
+        <%- include("footer.ejs") %>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="/index.js"></script>
+    </body>
+
+    </html>

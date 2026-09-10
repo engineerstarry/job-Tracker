@@ -87,7 +87,17 @@ res.json(newPatchedPost);
 })
 
 //CHALLENGE 5: DELETE a specific post by providing the post id.
-app.delete
+app.delete("/trackerArray/:id",(req, res)=>{
+  const id = parseInt(req.params.id);
+  const arrayIndex = trackerArray.findIndex((index)=> index.id === id);
+  if (arrayIndex > -1){
+trackerArray.splice(arrayIndex,1);
+   res.sendStatus(200)
+  } else {
+   res.status(400).json({error:`Nothing was deleted`})
+  }
+})
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });

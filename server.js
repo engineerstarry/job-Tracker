@@ -92,6 +92,15 @@ const response = await axios.get(`${Api_URL}/trackersArray/${req.params.id}`);
   }
 })
 
+// Delete a post
+app.delete("/delete/trackersArray/:id", async (req,res) =>{
+try{
+const response = await axios.delete(`${Api_URL}/trackerArray/${req.params.id}`);
+res.redirect("/trackers");
+} catch (error) {
+    console.error("Error getting object :",error);
+}
+})
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });

@@ -1,0 +1,25 @@
+
+<div class="container">
+<form method="post" action="/trackersArray/<%= tracker.id %>?_method=PATCH">
+
+    <label for="jobTitle">Job Title:</label>
+    <input type="text" id="jobTitle" name="jobTitle" required value="<%= tracker.jobName %>">
+
+    <label for="companyName">Company Name:</label>
+    <input type="text" id="companyName" name="companyName" required value="<%= tracker.companyName %>">
+
+    <label for="applicationDate">Application Date: </label>
+    <input type="date" id="applicationDate" name="applicationDate" required value="<%= tracker.dateApplied%>">
+
+    <label for="applicationStatus">Status:</label>
+    <select id="applicationStatus" name="applicationStatus">
+        <option value="applied"  <%= tracker.applicationStatus === "Applied" ? "selected" : "" %> >Applied</option>
+        <option value="interviewing"  <%= tracker.applicationStatus === "Interviewing" ? "selected" : "" %>>Interviewing</option>
+        <option value="offer" <%= tracker.applicationStatus === "Offer" ? "selected" : "" %> >Offer</option>
+        <option value="rejected"  <%= tracker.applicationStatus === "Rejected" ? "selected" : "" %>>Rejected</option>
+    </select>
+
+    <button type="submit">Edit Tracker</button>
+  </form>
+</div>
+<%- include("footer.ejs") %>

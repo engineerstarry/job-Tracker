@@ -1,6 +1,16 @@
 import express from "express";
+import bodyParser from "body-parser";
+import methodOverride from "method-override"
+
 const app = express();
 const PORT = 4000;
+
+
+app.use(express.static("public"));
+app.use(express.json());
+app.set("view engine", "ejs");
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(methodOverride("_method"));
 
 
 const trackerArray = [
@@ -57,6 +67,27 @@ trackerArray.push(newTracker);
 res.json(newTracker);
 res.status(201);
 })
+
+//CHALLENGE 4: PATCH a tracker when you just want to update one parameter
+app.patch("/trackersArray/:id", (req, res) => {
+  const trackerId = parseInt(req.params.id);
+  const tracker = trackerArray.find((t) => t.id === trackerId);
+const patchedPost = {
+    id: tracker.id,
+    jobName: req.body.jobName || tracker.jobName,
+    companyName: req.body.companyName || tracker.companyName,
+    applicationStatus: req.body.applicationStatus ||tracker.applicationStatus,
+    dateApplied:  req.body.dateApplied || tracker.dateApplied,
+    ApplicationMedium: req.body.ApplicationMedium || tracker.ApplicationMedium
+}
+const index = trackerArray.findIndex((tracker) => tracker.id === trackerId);
+ const newPatchedPost = trackerArray[index] = patchedPost;
+
+res.json(newPatchedPost);
+})
+
+//CHALLENGE 5: DELETE a specific post by providing the post id.
+app.delete
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });

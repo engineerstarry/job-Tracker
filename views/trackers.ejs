@@ -7,15 +7,25 @@
 </p>
 </div>
 <div class="trackers container">
+  
 <% trackers.forEach(tracker => { %>
     <div class="tracker-card">
         <p> <%= tracker.applicationDate %></p>
         <h2><%= tracker.jobName %></h2>
         <p> <%= tracker.companyName %></p>
         <p><%= tracker.applicationMedium %></p>
+        <p>Date : <%= tracker.dateApplied %></p>
         <p>Status: <%= tracker.applicationStatus %></p>
-        <a href="/trackers/<%= tracker.id %>">Open Tracker</a>
+      
+   
+    <%#     <form  method="POST" action="/trackersArray/tracker.id?_method=PATCH">
+   <button type="submit" formaction="/trackersArray/tracker.id?_method=PATCH">
+            <i class="bi bi-pencil-fill"></i></button>
+                </form>
+            %>
+            <a href="/modify/<%= tracker.id %>/"> <i class="bi bi-pencil-fill"></i></a>
     </div>
+
 <%}); %>
 </div>
 <%- include("footer.ejs") %>

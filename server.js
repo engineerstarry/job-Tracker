@@ -1,6 +1,7 @@
 import express from "express";
 import axios from "axios";
 import bodyParser from "body-parser";
+import methodOverride from "method-override"
 
 const app = express();
 const PORT = 3000;
@@ -9,7 +10,7 @@ app.use(express.static("public"));
 app.use(express.json());
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
-
+app.use(methodOverride("_method"));
 const Api_URL = "http://localhost:4000"; 
 
 // display trackersArray
@@ -22,14 +23,15 @@ res.render("index.ejs", { trackers: response.data });
   res.status(500).send("Error fetching trackers");
 }
 });
-app.get("/", (req, res) => {
- res.render("index.ejs");
-});
 
-
-
-app.get("/startTracking", (req, res) => {
-  res.render("startTracking.ejs");
+app.get("/startTracking", async (req, res) => {
+  try {
+    const response = await axios.get(Api_URL + "/trackersArray");
+    res.render("startTracking.ejs", { trackers: response.data });
+  } catch (error) {
+    console.error("Error fetching trackers:", error);
+    res.status(500).send("Error fetching trackers");
+  }
 })
 
 app.get("/privacy", (req, res) => {
@@ -67,6 +69,28 @@ app.get("/trackers", async(req, res) => {
   }
 
 }) 
+
+//patch a tracker
+
+app.patch("/trackersArray/:id", async (req, res) => {
+  try {
+    const response = await axios.patch(`${Api_URL}/trackersArray/${req.params.id}`,req.body);
+    console.log("Tracker updated:", response.data);
+    res.redirect("/trackers")
+  } catch (error) {
+    console.error("Error updating tracker:", error);
+    res.status(500).send("Error updating tracker");
+  }
+});
+
+app.get("/modify/:id", async (req, res) => {
+  try{
+const response = await axios.get(`${Api_URL}/trackersArray/${req.params.id}`);
+  res.render("modify.ejs", {tracker: response.data});
+  } catch (error) { 
+    console.error("Error getting object :",error);
+  }
+})
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

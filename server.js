@@ -43,7 +43,7 @@ app.get("/privacy", (req, res) => {
 app.post("/trackersArray/jobTrackers", async (req, res) => {
   try {
     const newTracker = {
-      jobTitle: req.body.jobTitle,
+      jobName: req.body.jobName,
       companyName: req.body.companyName,
       applicationDate: req.body.applicationDate,
       applicationStatus: req.body.applicationStatus,

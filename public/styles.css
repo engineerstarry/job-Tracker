@@ -1,8 +1,99 @@
-#menu {
-    display: none;
- 
+body{
+    background-color: #0B132B;
+    color: white;
 }
 
+#menu {
+    display: none;
+    width: 98%;
+    height: 67%;
+    background-color:#0B132B;
+    position: absolute;
+    top: 15%;
+    right: 0;
+    z-index: 1000;
+       border: 0.5px solid #7c7b7b;
+    border-radius: 10px;
+    margin: 0 auto;
+    left: 50%;
+        transform: translateX(-50%);
+        padding-top: 20px;
+   padding-left: 8px;
+}
+
+#menu a:first-of-type{
+     width: 95%;
+border-radius: 8px;
+background-color: white;
+height:38px ;
+padding-top:5px;
+padding-left: 25px;  
+color: black;
+}
+
+#menu  a:nth-of-type(5){
+         width: 95%;
+border-radius: 8px;
+background-color: white;
+height:38px ;
+padding-top:5px;
+padding-left: 25px;  
+color: black;
+text-align: center;
+}
+#menu a:first-of-type:hover{
+    background-color: azure;
+}
+a{
+    text-decoration: none;
+
+padding-left:12px ;
+
+
+}
+
+#menu a{
+   width: 95%;
+border-radius: 8px;
+color: white;
+height:38px ;
+padding-top:5px;
+padding-left: 25px;
+}
+
+.light{
+    width: 99%;
+   border-radius: 8px;
+color: white;
+height:38px ;
+padding-left: 0;
+padding-top:5px;  
+ background-color: rgba(255, 255, 255, 0.2);
+ text-align: center;
+      font-weight:600;
+}
+.light:hover{
+ background-color: rgba(255, 255, 255, 0.4);
+}
+.sign-in{
+    padding-left: 25px;
+     background-color: rgba(255, 255, 255, 0.2);
+     height:38px ;
+     width: 30%;
+     text-align: center;
+     padding-top: 5px;
+     border-radius: 8px;
+     font-weight:600;
+}
+
+.sign-in:hover{
+     background-color: rgba(255, 255, 255, 0.4);
+}
+#menu a:hover{
+   background-color: azure;
+   color: black;
+
+}
 #menu.show {
     display: block;
 
@@ -23,5 +114,28 @@ a{
 
 .logo-div{
 display: flex;
+gap: 12px;
 }
 
+nav {
+    margin-top:20px ;
+   
+}
+
+img {
+margin-top: 9px;
+height: 50px;
+width: 60px;
+border-radius: 5px;
+}
+
+button {
+    height: 45px;
+    width:45px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    border-radius: 5px;
+    font-size: 25px;
+    margin: 0 auto;
+}
